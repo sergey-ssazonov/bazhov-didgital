@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://bazhov.vercel.app/
+
+# Sitemaps
+Sitemap: https://bazhov.vercel.app/sitemap.xml
