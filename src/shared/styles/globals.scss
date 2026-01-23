@@ -44,9 +44,22 @@ ul li {
   list-style: none;
 }
 
-// TODO: добавить opacity
 .bg-paper {
-  background-image: url("../../../public/images/effect-paper-bg.png");
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-paper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../../../public/images/effect-paper-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  border-radius: inherit;
+  z-index: -1;
 }
 
 /* Глобальные стили скроллбара */

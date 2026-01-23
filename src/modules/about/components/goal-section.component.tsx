@@ -1,19 +1,19 @@
-import React, { FC } from "react";
-import Ellipse from "./ellipse";
-import GoalImg from "@/public/images/about/goal-img.jpg";
-import Image from "next/image";
-import Title from "./title";
-import SectionSpace from "./section-space";
+import React, { FC } from 'react';
+import Ellipse from '../../../components/ellipse';
+import GoalImg from '@/public/images/about/goal-img.jpg';
+import Image from 'next/image';
+import Title from './title';
+import SectionSpace from '../../../components/section-space';
 
 const GoalSection: FC = () => {
   const firstTags: string[] = [
-    "Народный язык",
-    "Фольклор",
-    "История Урала",
-    "Литература Урала",
+    'Народный язык',
+    'Фольклор',
+    'История Урала',
+    'Литература Урала',
   ];
 
-  const secondTags: string[] = ["Угрузнуть", "Чернознай", "Шатало", "Пимишки"];
+  const secondTags: string[] = ['Угрузнуть', 'Чернознай', 'Шатало', 'Пимишки'];
 
   return (
     <>
@@ -28,7 +28,7 @@ const GoalSection: FC = () => {
           </p>
           <div className="flex flex-wrap gap-1 md:gap-2 mt-2">
             {firstTags.map((tag) => (
-              <Ellipse key={tag} variant={"outlined"}>
+              <Ellipse key={tag} variant={'outlined'}>
                 #{tag}
               </Ellipse>
             ))}
@@ -61,7 +61,7 @@ const GoalSection: FC = () => {
           </p>
           <div className="flex flex-wrap gap-1 md:gap-2 mt-2">
             {secondTags.map((tag) => (
-              <Ellipse key={tag} variant={"flat"}>
+              <Ellipse key={tag} variant={'flat'}>
                 #{tag}
               </Ellipse>
             ))}

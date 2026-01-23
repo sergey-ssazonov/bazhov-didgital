@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import SectionSpace from "./section-space";
-import BykovImg from "@/public/images/about/bykov-img.png";
-import Image from "next/image";
+import React, { FC } from 'react';
+import SectionSpace from '../../../components/section-space';
+import BykovImg from '@/public/images/about/bykov-img.png';
+import Image from 'next/image';
 
 const BykovSection: FC = () => {
   return (

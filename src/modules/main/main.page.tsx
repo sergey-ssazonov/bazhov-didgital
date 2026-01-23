@@ -1,20 +1,24 @@
-"use client";
+import { FC } from 'react';
+import PreviewSection from './components/preview-section.component';
+import SectionTitle from './components/section-title.component';
+import Alphabet from '@/src/components/alphabet/alphabet.component';
+import { taleService } from '@/src/shared/lib/services/tale.service';
+import TalesList from '@/src/components/tale-list';
 
-import DemoVersion from "@/src/shared/components/demo/demo.provider";
-import { AlphabetSearch } from "@/src/widgets/alphabetSearch";
-import { MainSearch } from "@/src/widgets/mainSearch";
-import { SearchTales } from "@/src/widgets/searchTales";
-import { FC } from "react";
+const MainPage: FC = async () => {
+  const tales = await taleService.getTales({ page: 1, limit: 6 });
 
-const MainPage: FC = () => {
   return (
     <div className="flex flex-col gap-[120px]">
-      <DemoVersion>
-        <MainSearch />
-        {/* <SectionTitle>сказу</SectionTitle> */}
-        <SearchTales />
-        <AlphabetSearch />
-      </DemoVersion>
+      <PreviewSection />
+      <div>
+        <SectionTitle>сказу</SectionTitle>
+        <TalesList tales={tales.data} isPreview />
+      </div>
+      <div>
+        <SectionTitle>алфавиту</SectionTitle>
+        <Alphabet />
+      </div>
     </div>
   );
 };

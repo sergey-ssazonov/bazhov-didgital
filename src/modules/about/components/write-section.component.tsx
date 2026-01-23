@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import Write1Img from "@/public/images/about/about-write-1-img.jpg";
-import Write2Img from "@/public/images/about/about-write-2-img.jpg";
-import Write3Img from "@/public/images/about/about-write-3-img.jpg";
-import Image from "next/image";
-import Title from "./title";
-import SectionSpace from "./section-space";
+import React, { FC } from 'react';
+import Write1Img from '@/public/images/about/about-write-1-img.jpg';
+import Write2Img from '@/public/images/about/about-write-2-img.jpg';
+import Write3Img from '@/public/images/about/about-write-3-img.jpg';
+import Image from 'next/image';
+import Title from './title';
+import SectionSpace from '../../../components/section-space';
 
 const WriteSection: FC = () => {
   const WRITE_IMG = [Write1Img, Write2Img, Write3Img];
