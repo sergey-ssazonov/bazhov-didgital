@@ -1,45 +1,53 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
-export type TQueryUpdate = ({ params, pathname }: TQueryUpdateProps) => void;
+export type TQueryParams = Record<
+  string,
+  string | number | boolean | null | undefined
+>;
 
 type TQueryUpdateProps = {
   params: TQueryParams;
   pathname?: string;
 };
 
-export type TQueryParams = Record<
-  string,
-  string | number | null | boolean | undefined
->;
+export type TQueryUpdate = (args: TQueryUpdateProps) => void;
 
 /**
- * Хук для обновления query параметров в URL без перезагрузки страницы.
- * @returns Функция для обновления query параметров.
+ * Обновляет query-параметры в URL без перезагрузки страницы.
+ * Возвращает функцию, которая:
+ * - удаляет ключ, если значение null/undefined/пустая строка
+ * - иначе ставит значение как строку
  */
 export const useQueryParamsUpdate = (): TQueryUpdate => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  return useCallback(
+  const updateQuery = useCallback(
     ({ params, pathname }: TQueryUpdateProps) => {
-      const current = new URLSearchParams(searchParams.toString());
+      // берём текущие query-параметры
+      const nextParams = new URLSearchParams(searchParams.toString());
 
-      Object.entries(params).forEach(([key, value]) => {
+      // применяем изменения
+      for (const [key, value] of Object.entries(params)) {
         if (value === null || value === undefined || value === '') {
-          current.delete(key);
-        } else {
-          current.set(key, String(value));
+          nextParams.delete(key);
+          continue;
         }
-      });
+        nextParams.set(key, String(value));
+      }
 
-      const query = current.toString();
-      const newUrl = `${pathname ?? window.location.pathname}${query ? `?${query}` : ''}`;
+      // собираем новый URL
+      const queryString = nextParams.toString();
+      const basePath = pathname ?? window.location.pathname;
+      const url = queryString ? `${basePath}?${queryString}` : basePath;
 
-      router.push(newUrl, { scroll: false });
+      router.push(url, { scroll: false });
     },
     [router, searchParams]
   );
+
+  return updateQuery;
 };
