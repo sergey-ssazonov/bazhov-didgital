@@ -37,11 +37,15 @@ const WordList: FC<TWordListProps> = ({ words, title, variant, hrefClose }) => {
           </Link>
         </div>
       )}
-      <div className="flex flex-col gap-4">
-        {words.map((word) => (
-          <WordCard key={word.id} {...word} />
-        ))}
-      </div>
+      {words.length > 0 ? (
+        <div className="flex flex-col gap-4">
+          {words.map((word) => (
+            <WordCard key={word.id} {...word} />
+          ))}
+        </div>
+      ) : (
+        <div className="mx-auto text-center font-semibold text-xl">Таких слов не нашли, попробуйте другие</div>
+      )}
     </div>
   );
 };

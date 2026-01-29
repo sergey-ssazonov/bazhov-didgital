@@ -1,20 +1,26 @@
 'use client';
 
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Logo from '@/public/images/logo.svg';
 import LogoMob from '@/public/images/logo-mob.svg';
-import Navigation from './navigation';
+import Navigation from '../navigation';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header className="h-16 flex justify-between items-center">
@@ -57,7 +63,7 @@ const Header: FC = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="w-full absolute left-0 top-0 z-[100] bg-whiteSecondary flex flex-col items-center pt-16 pb-4">
-          <Navigation variant="vertical" />
+          <Navigation variant="flat" className="flex-col" />
         </div>
       )}
     </header>

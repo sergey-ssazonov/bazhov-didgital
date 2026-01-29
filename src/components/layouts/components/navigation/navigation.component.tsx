@@ -6,7 +6,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 type TNavigationProps = {
-  variant: 'vertical' | 'horizontal';
+  variant: 'flat' | 'horizontal';
+  className?: string;
+  classNameItem?: string;
 };
 
 const isActive = (href: string, pathname: string) => {
@@ -15,7 +17,11 @@ const isActive = (href: string, pathname: string) => {
   return pathname === href || pathname.startsWith(href + '/');
 };
 
-const Navigation: FC<TNavigationProps> = ({ variant }) => {
+const Navigation: FC<TNavigationProps> = ({
+  variant,
+  className,
+  classNameItem,
+}) => {
   const pathname = usePathname();
 
   const isHorizontal = variant === 'horizontal';
@@ -23,7 +29,7 @@ const Navigation: FC<TNavigationProps> = ({ variant }) => {
   return (
     <nav className="z-20">
       <ul
-        className={`flex ${isHorizontal ? 'bg-whiteSecondary  rounded-full p-2 gap-2' : 'flex-col'} `}
+        className={`flex ${isHorizontal && 'bg-whiteSecondary  rounded-full p-2 gap-2'} ${className}`}
       >
         {NAVIGATION_ITEMS.map((item, index) => (
           <li key={index}>
@@ -34,7 +40,7 @@ const Navigation: FC<TNavigationProps> = ({ variant }) => {
                     isActive(item.href, pathname)
                       ? 'bg-white text-blackPrimary font-bold'
                       : 'hover:text-blackPrimary'
-                  }`}
+                  } ${classNameItem}`}
                 >
                   {item.label}
                 </span>
@@ -44,7 +50,7 @@ const Navigation: FC<TNavigationProps> = ({ variant }) => {
                     isActive(item.href, pathname)
                       ? 'text-blackPrimary font-bold'
                       : 'hover:text-blackPrimary'
-                  }`}
+                  } ${classNameItem}`}
                 >
                   {item.label}
                 </span>

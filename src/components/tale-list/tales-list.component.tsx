@@ -17,7 +17,7 @@ const TalesList: FC<TTalesListProps> = ({ isPreview, tales }) => {
     <div className="w-full">
       <div className="grid w-full grid-cols-2 md:grid-cols-3 ">
         {visibleTales.map((tale) => (
-          <Link key={tale.id} href={`/search/tale/${tale.id}`}>
+          <Link key={tale.slug} href={`/search/tale/${tale.slug}`}>
             <figure className="lg:p-6 p-4 border border-greySecondary hover:bg-greenSecondary hover:text-greenPrimary ">
               <div className="relative w-full aspect-[0.875] overflow-hidden">
                 {tale.taleImage && (

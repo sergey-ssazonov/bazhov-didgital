@@ -42,7 +42,21 @@ export class TaleTransport {
 
       return Tale.fromServer(data);
     } catch (error) {
-      console.error('Transport getWords error:', error);
+      console.error('Transport getTaleById error:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Получение сказа по Slug
+   */
+  async getTaleBySlug(slug: string): Promise<Tale | null> {
+    try {
+      const { data } = await axiosInstance.get<TTale>(`/tales/slug/${slug}`);
+
+      return Tale.fromServer(data);
+    } catch (error) {
+      console.error('Transport getTaleBySlug error:', error);
       return null;
     }
   }

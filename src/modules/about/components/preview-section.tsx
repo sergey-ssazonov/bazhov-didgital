@@ -8,7 +8,7 @@ const PreviewSection: FC = () => {
   return (
     <>
       <section className="grid grid-cols-2 mt-8 md:mt-16 lg:mt-24 bg-greenDark">
-        <div className="m relative mx-auto w-full sm:aspect-[1.75] max-sm:h-60 max-xs:h-32 max-lg:col-span-2">
+        <div className="relative mx-auto w-full sm:aspect-[1.75] max-sm:h-60 max-xs:h-32 max-lg:col-span-2">
           <Image
             src={AboutPreviewImg.src}
             fill
@@ -31,7 +31,7 @@ const PreviewSection: FC = () => {
               src={FondLogoImg.src}
               alt="Президентского фонда культурных инициатив"
               height={60}
-              width={300}
+              width={250}
             />
             {/* <p className="text-white w-3/4 max-lg:text-sm max-sm:text-xs">
               Проект реализуется при поддержке Президентского фонда культурных

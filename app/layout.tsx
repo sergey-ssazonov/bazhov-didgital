@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import '@/src/shared/styles/globals.scss';
-import { CommonLayout } from '@/src/components/layouts/commonLayout';
+import { CommonLayout } from '@/src/components/layouts/common';
 import TLayout from '@/src/shared/types/layout';
 
 export const metadata: Metadata = {

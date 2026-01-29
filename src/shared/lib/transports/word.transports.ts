@@ -14,7 +14,7 @@ export class WordTransport {
 
       if (query.search?.trim()) params.search = query.search.trim();
       if (query.byLetter?.trim()) params.byLetter = query.byLetter.trim();
-      if (query.taleId?.trim()) params.taleId = query.taleId.trim();
+      if (query.tale?.trim()) params.tale = query.tale.trim();
 
       if (query.limit) params.limit = String(query.limit);
       if (query.page) params.page = String(query.page);

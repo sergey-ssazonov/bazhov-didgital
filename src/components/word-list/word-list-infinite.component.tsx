@@ -10,7 +10,7 @@ import { useSearchParams } from 'next/navigation';
 
 type TWordListInfiniteProps = {
   byLetter?: string;
-  taleId?: string;
+  tale?: string;
 
   initialItems: Word[];
   initialCount: number;
@@ -24,7 +24,7 @@ type TWordListInfiniteProps = {
 
 export default function WordListInfinite({
   byLetter,
-  taleId,
+  tale,
   initialItems,
   initialCount,
   limit = 20,
@@ -41,8 +41,8 @@ export default function WordListInfinite({
   const search = searchParams.get('search') ?? '';
 
   const key = useMemo(
-    () => `${search ?? ''}|${byLetter ?? ''}|${taleId ?? ''}`,
-    [search, byLetter, taleId]
+    () => `${search ?? ''}|${byLetter ?? ''}|${tale ?? ''}`,
+    [search, byLetter, tale]
   );
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function WordListInfinite({
     const res = await wordService.getWords({
       search,
       byLetter,
-      taleId,
+      tale,
       page: nextPage,
       limit,
     });
@@ -72,7 +72,7 @@ export default function WordListInfinite({
     setCount(res.count);
     setPage(nextPage);
     setLoading(false);
-  }, [loading, hasMore, page, search, byLetter, taleId, limit]);
+  }, [loading, hasMore, page, search, byLetter, tale, limit]);
 
   return (
     <InfiniteScroll

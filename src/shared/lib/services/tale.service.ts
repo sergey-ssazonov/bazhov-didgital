@@ -27,6 +27,14 @@ export class TaleService {
     const tale = await this.transport.getTaleById(id);
     return toPlain(tale);
   }
+
+  /**
+   * Получение сказа по ID
+   */
+  async getTaleBySlug(slug: string): Promise<Tale | null> {
+    const tale = await this.transport.getTaleBySlug(slug);
+    return toPlain(tale);
+  }
 }
 
 export const taleService = new TaleService(new TaleTransport());

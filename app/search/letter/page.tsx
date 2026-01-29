@@ -36,6 +36,7 @@ export default async function SearchAlphabetPage({
           initialItems={data}
           initialCount={count}
           limit={limit}
+          byLetter={byLetter}
           title={byLetter}
           variant="flat"
           hrefClose="/search/letter"

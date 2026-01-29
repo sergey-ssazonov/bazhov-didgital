@@ -3,11 +3,16 @@ import { Word } from '@/src/shared/lib/models/word.model';
 import Ellipse from '../../ellipse';
 import parse from 'html-react-parser';
 
-const WordCard: FC<Word> = ({ word, description, exampleText, tale }) => {
+const WordCard: FC<Word> = ({
+  wordWithAccent,
+  description,
+  exampleText,
+  tale,
+}) => {
   return (
     <div className="lg:grid lg:grid-cols-[416px_1fr] md:text-xl border-b border-greySecondary last:border-b-0 pb-6">
       <h2 className="text-greenPrimary md:text-3xl text-xl block md:inline">
-        {word}&nbsp;&mdash;&nbsp;
+        {wordWithAccent}&nbsp;&mdash;&nbsp;
       </h2>
       <p className="block md:inline">{description}</p>
 

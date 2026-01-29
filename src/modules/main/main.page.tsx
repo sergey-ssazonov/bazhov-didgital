@@ -4,6 +4,7 @@ import SectionTitle from './components/section-title.component';
 import Alphabet from '@/src/components/alphabet/alphabet.component';
 import { taleService } from '@/src/shared/lib/services/tale.service';
 import TalesList from '@/src/components/tale-list';
+import Footer from '@/src/components/layouts/components/footer';
 
 const MainPage: FC = async () => {
   const tales = await taleService.getTales({ page: 1, limit: 6 });
@@ -19,6 +20,7 @@ const MainPage: FC = async () => {
         <SectionTitle>алфавиту</SectionTitle>
         <Alphabet />
       </div>
+      <Footer/>
     </div>
   );
 };

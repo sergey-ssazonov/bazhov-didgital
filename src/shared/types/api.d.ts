@@ -1,7 +1,7 @@
 export type TFiltersQuery = {
   search?: string;
   byLetter?: string;
-  taleId?: string;
+  tale?: string;
 };
 
 export type TPaginationQuery = {

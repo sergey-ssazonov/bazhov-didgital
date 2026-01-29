@@ -4,7 +4,7 @@ import { taleService } from '@/src/shared/lib/services/tale.service';
 import { wordService } from '@/src/shared/lib/services/word.service';
 
 type TTalePageProps = {
-  params: { id: string };
+  params: { slug: string };
   searchParams: { search?: string };
 };
 
@@ -15,11 +15,11 @@ export default async function TalePage({
   const search = searchParams.search ?? '';
   const limit = 20;
 
-  const tale = await taleService.getTaleById(params.id);
+  const tale = await taleService.getTaleBySlug(params.slug);
 
   const { data, count } = await wordService.getWords({
     search,
-    taleId: params.id,
+    tale: params.slug,
     page: 1,
     limit,
   });
@@ -31,6 +31,7 @@ export default async function TalePage({
         initialItems={data}
         initialCount={count}
         limit={limit}
+        tale={params.slug}
         title={tale?.name}
         variant="flat"
         hrefClose="/search/tale"
