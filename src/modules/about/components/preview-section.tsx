@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { FC } from 'react';
 import AboutPreviewImg from '@/public/images/about/about-preview-img.jpg';
-import FondLogoImg from '@/public/images/about/logo-fond.png';
+import FondLogoImg from '@/public/images/about/logo-fond-new.png';
 import SectionSpace from '../../../components/section-space';
 
 const PreviewSection: FC = () => {
@@ -30,8 +30,8 @@ const PreviewSection: FC = () => {
             <Image
               src={FondLogoImg.src}
               alt="Президентского фонда культурных инициатив"
-              height={60}
-              width={250}
+              height={40}
+              width={200}
             />
             {/* <p className="text-white w-3/4 max-lg:text-sm max-sm:text-xs">
               Проект реализуется при поддержке Президентского фонда культурных

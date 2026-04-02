@@ -4,7 +4,7 @@ import { FC } from 'react';
 import LogoWhite from '@/public/images/logo-white.svg';
 import Navigation from '../navigation';
 import { ArrowUpOutlined } from '@ant-design/icons';
-import FondLogoImg from '@/public/images/about/logo-fond.png';
+import FondLogoImg from '@/public/images/about/logo-fond-new.png';
 
 const Footer: FC = () => {
   return (
@@ -28,18 +28,17 @@ const Footer: FC = () => {
         />
       </div>
 
-      <div className="flex items-center self-start gap-3 max-sm:flex-col max-sm:items-start mt-20">
+      <div className="flex flex-col items-start self-start gap-3 max-sm:flex-col max-sm:items-start mt-20">
         <Image
           src={FondLogoImg.src}
           alt="Президентского фонда культурных инициатив"
-          height={50}
+          height={40}
           width={200}
         />
         <p className="text-white">
           Проект реализуется при поддержке Президентского фонда культурных
           инициатив
-          <br />
-          заявка &#8470;ПФКИ-25-1-011059
+       
         </p>
       </div>
 
