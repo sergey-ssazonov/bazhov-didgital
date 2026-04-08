@@ -1,6 +1,6 @@
 services:
   prod:
-    image: sergeysazonov/bazhov-dictionary:${TAG}
+    image: sergeysazonov/bazhov-dictionary
     container_name: bazhov-dictionary-prod
     ports:
       - "4000:3000"
